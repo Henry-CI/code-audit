@@ -1,0 +1,150 @@
+# Pass 3 Documentation Audit — Agent A60
+**Audit run:** 2026-02-26-01
+**Agent:** A60
+**Files audited:**
+- `bean/UnitFuelTypeBean.java`
+- `bean/UnitTypeBean.java`
+- `bean/UserBean.java`
+
+---
+
+## 1. UnitFuelTypeBean.java
+
+### Reading Evidence
+
+**File:** `src/main/java/com/bean/UnitFuelTypeBean.java`
+
+| Element | Kind | Line |
+|---|---|---|
+| `UnitFuelTypeBean` | class | 5 |
+| `serialVersionUID` | `private static final long` | 10 |
+| `id` | `private String` | 12 |
+| `name` | `private String` | 13 |
+| `getId()` | public method | 14 |
+| `setId(String id)` | public method | 17 |
+| `getName()` | public method | 20 |
+| `setName(String name)` | public method | 23 |
+
+### Javadoc Analysis
+
+- **Class-level Javadoc:** Absent.
+- The only `/** ... */` block present (lines 7-9) is an empty auto-generated stub attached to `serialVersionUID`, not to the class declaration. This does not serve as class-level documentation.
+- `getId()` — no Javadoc.
+- `setId(String id)` — no Javadoc.
+- `getName()` — no Javadoc.
+- `setName(String name)` — no Javadoc.
+
+### Findings
+
+| ID | Severity | Location | Description |
+|---|---|---|---|
+| A60-1 | LOW | `UnitFuelTypeBean`, line 5 | No class-level Javadoc. The class purpose (a simple value-object representing a fuel type for a unit) is undocumented. |
+| A60-2 | LOW | `getId()`, line 14 | Undocumented trivial getter. No Javadoc present. |
+| A60-3 | LOW | `setId(String id)`, line 17 | Undocumented trivial setter. No Javadoc present. |
+| A60-4 | LOW | `getName()`, line 20 | Undocumented trivial getter. No Javadoc present. |
+| A60-5 | LOW | `setName(String name)`, line 23 | Undocumented trivial setter. No Javadoc present. |
+
+---
+
+## 2. UnitTypeBean.java
+
+### Reading Evidence
+
+**File:** `src/main/java/com/bean/UnitTypeBean.java`
+
+| Element | Kind | Line |
+|---|---|---|
+| `UnitTypeBean` | class | 5 |
+| `serialVersionUID` | `private static final long` | 9 |
+| `id` | `private String` | 10 |
+| `name` | `private String` | 11 |
+| `getId()` | public method | 13 |
+| `setId(String id)` | public method | 16 |
+| `getName()` | public method | 19 |
+| `setName(String name)` | public method | 22 |
+
+### Javadoc Analysis
+
+- **Class-level Javadoc:** Absent.
+- The only `/** ... */` block present (lines 6-8) is an empty auto-generated stub placed immediately before `serialVersionUID`, not before the class declaration. This does not constitute class-level documentation.
+- `getId()` — no Javadoc.
+- `setId(String id)` — no Javadoc.
+- `getName()` — no Javadoc.
+- `setName(String name)` — no Javadoc.
+
+### Findings
+
+| ID | Severity | Location | Description |
+|---|---|---|---|
+| A60-6 | LOW | `UnitTypeBean`, line 5 | No class-level Javadoc. The class purpose (a simple value-object representing a unit type) is undocumented. |
+| A60-7 | LOW | `getId()`, line 13 | Undocumented trivial getter. No Javadoc present. |
+| A60-8 | LOW | `setId(String id)`, line 16 | Undocumented trivial setter. No Javadoc present. |
+| A60-9 | LOW | `getName()`, line 19 | Undocumented trivial getter. No Javadoc present. |
+| A60-10 | LOW | `setName(String name)`, line 22 | Undocumented trivial setter. No Javadoc present. |
+
+---
+
+## 3. UserBean.java
+
+### Reading Evidence
+
+**File:** `src/main/java/com/bean/UserBean.java`
+
+| Element | Kind | Line |
+|---|---|---|
+| `UserBean` | class | 13 |
+| `serialVersionUID` | `private static final long` | 18 |
+| `iduser` | `private int` | 20 |
+| `name` | `private String` | 21 |
+| `email` | `private String` | 22 |
+| `password` | `private String` | 23 |
+| `enabled` | `private boolean` | 24 |
+| `mobile` | `private String` | 25 |
+| `first_name` | `private String` | 26 |
+| `last_name` | `private String` | 27 |
+| `UserBean(int, String, String, String, boolean, String, String, String)` | `private` constructor (Lombok `@Builder`) | 30 |
+
+**Lombok-generated public API (via `@Data` and `@NoArgsConstructor`):**
+- `@Data` generates: `getId user()`, `getName()`, `getEmail()`, `getPassword()`, `isEnabled()`, `getMobile()`, `getFirst_name()`, `getLast_name()`, and corresponding setters for all fields, plus `equals()`, `hashCode()`, `toString()`.
+- `@NoArgsConstructor` generates a public no-arg constructor.
+- `@Builder` on the private constructor generates a `UserBean.UserBeanBuilder` inner class with a public static `builder()` factory method.
+
+### Javadoc Analysis
+
+- **Class-level Javadoc:** Absent.
+- The only `/** ... */` block present (lines 15-17) is an empty auto-generated stub attached to `serialVersionUID`, not to the class declaration.
+- All public methods are Lombok-generated; no source-level Javadoc exists for any of them.
+- The private `@Builder` constructor (line 30) is not public, so its lack of Javadoc is not directly a public-API concern, but the generated `builder()` method and `UserBeanBuilder` type are public with no documentation.
+- Notable design observation: the field `password` (line 23) is exposed via a public getter generated by `@Data`. This is a security-sensitive field and its public accessibility deserves at minimum a documentation warning; however, documentation inaccuracy/absence rather than implementation correctness is the scope here.
+
+### Findings
+
+| ID | Severity | Location | Description |
+|---|---|---|---|
+| A60-11 | LOW | `UserBean`, line 13 | No class-level Javadoc. The class purpose, its Lombok-generated API surface (`@Data`, `@NoArgsConstructor`, `@Builder`), and the meaning of its fields are undocumented. |
+| A60-12 | LOW | Lombok-generated getters/setters (all fields) | Undocumented trivial getters and setters. These are generated by `@Data` with no Javadoc annotations on the fields or class to guide tool-generated docs. |
+| A60-13 | LOW | Lombok `@Builder` / `UserBeanBuilder`, line 29 | The public `builder()` factory method and `UserBeanBuilder` inner class generated by `@Builder` carry no documentation. No `@param` or description is provided for any builder parameter. |
+
+---
+
+## Summary Table
+
+| ID | File | Severity | Short Description |
+|---|---|---|---|
+| A60-1 | UnitFuelTypeBean.java | LOW | No class-level Javadoc |
+| A60-2 | UnitFuelTypeBean.java | LOW | `getId()` undocumented |
+| A60-3 | UnitFuelTypeBean.java | LOW | `setId()` undocumented |
+| A60-4 | UnitFuelTypeBean.java | LOW | `getName()` undocumented |
+| A60-5 | UnitFuelTypeBean.java | LOW | `setName()` undocumented |
+| A60-6 | UnitTypeBean.java | LOW | No class-level Javadoc |
+| A60-7 | UnitTypeBean.java | LOW | `getId()` undocumented |
+| A60-8 | UnitTypeBean.java | LOW | `setId()` undocumented |
+| A60-9 | UnitTypeBean.java | LOW | `getName()` undocumented |
+| A60-10 | UnitTypeBean.java | LOW | `setName()` undocumented |
+| A60-11 | UserBean.java | LOW | No class-level Javadoc |
+| A60-12 | UserBean.java | LOW | All Lombok-generated getters/setters undocumented |
+| A60-13 | UserBean.java | LOW | Lombok `@Builder` public API undocumented |
+
+**Total findings: 13 — all LOW severity.**
+
+No MEDIUM or HIGH severity issues were identified. No Javadoc was present on any public method across all three files, so there were no inaccurate or misleading comments to escalate. All deficiencies are absence-of-documentation issues.

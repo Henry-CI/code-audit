@@ -1,0 +1,232 @@
+# Pass 2 Test-Coverage Audit
+**Audit run:** 2026-02-26-01
+**Agent ID:** A44
+**Files audited:**
+- `src/main/java/com/bean/CompEntityRelBean.java`
+- `src/main/java/com/bean/CompanyBean.java`
+- `src/main/java/com/bean/DateFormatBean.java`
+
+**Test directory scanned:** `src/test/java/`
+**Existing test files found:**
+- `com/calibration/UnitCalibrationImpactFilterTest.java`
+- `com/calibration/UnitCalibrationTest.java`
+- `com/calibration/UnitCalibratorTest.java`
+- `com/util/ImpactUtilTest.java`
+
+---
+
+## Reading Evidence
+
+### 1. CompEntityRelBean
+**File:** `src/main/java/com/bean/CompEntityRelBean.java`
+**Class:** `CompEntityRelBean` (line 3)
+**Annotations:** none (no Lombok — hand-written getters/setters)
+**Implements:** nothing
+**Sensitive fields:** none
+
+| Field | Type | Default | Line |
+|-------|------|---------|------|
+| `id` | `String` | `null` | 4 |
+| `comp_id` | `String` | `null` | 5 |
+| `entity_id` | `String` | `null` | 6 |
+| `entityname` | `String` | `null` | 7 |
+| `compname` | `String` | `null` | 8 |
+
+| Method | Lines |
+|--------|-------|
+| `getId()` | 10–12 |
+| `setId(String id)` | 13–15 |
+| `getComp_id()` | 16–18 |
+| `setComp_id(String comp_id)` | 19–21 |
+| `getEntity_id()` | 22–24 |
+| `setEntity_id(String entity_id)` | 25–27 |
+| `getEntityname()` | 28–30 |
+| `setEntityname(String entityname)` | 31–33 |
+| `getCompname()` | 34–36 |
+| `setCompname(String compname)` | 37–39 |
+
+Notes:
+- No `@Data` or `@Builder` — all accessor methods are explicitly hand-written.
+- No `equals()`, `hashCode()`, or `toString()` defined or generated.
+- No `serialVersionUID` despite the class being a bean that may be serialised through session/Struts.
+
+---
+
+### 2. CompanyBean
+**File:** `src/main/java/com/bean/CompanyBean.java`
+**Class:** `CompanyBean` (line 13)
+**Annotations:** `@Data`, `@NoArgsConstructor` (Lombok generates all getters, setters, `equals`, `hashCode`, `toString`); `@Builder` on private all-args constructor (line 50–79)
+**Implements:** `Serializable` (serialVersionUID = 3266139143986440056L)
+**Sensitive fields:** `password` (line 24), `pin` (line 25), `answer` (line 31)
+
+| Field | Type | Default | Notes | Line |
+|-------|------|---------|-------|------|
+| `id` | `String` | `null` | | 17 |
+| `name` | `String` | `null` | | 18 |
+| `address` | `String` | `null` | | 19 |
+| `suburb` | `String` | `null` | | 20 |
+| `postcode` | `String` | `null` | | 21 |
+| `email` | `String` | `null` | | 22 |
+| `contact_no` | `String` | `null` | | 23 |
+| `password` | `String` | `null` | **SENSITIVE** | 24 |
+| `pin` | `String` | `null` | **SENSITIVE** | 25 |
+| `refnm` | `String` | `null` | | 26 |
+| `refno` | `String` | `null` | | 27 |
+| `contact_fname` | `String` | `null` | | 28 |
+| `contact_lname` | `String` | `null` | | 29 |
+| `question` | `String` | `null` | | 30 |
+| `answer` | `String` | `null` | **SENSITIVE** (security question answer) | 31 |
+| `unit` | `String` | `null` | | 32 |
+| `subemail` | `String` | `null` | | 33 |
+| `timezone` | `String` | `null` | | 34 |
+| `timezoneName` | `String` | `null` | | 35 |
+| `dateFormat` | `String` | `null` | | 36 |
+| `maxSessionLength` | `Integer` | `null` | | 37 |
+| `lan_id` | `String` | `null` | | 38 |
+| `privacy` | `boolean` | `false` | | 39 |
+| `template` | `String` | `""` | | 40 |
+| `authority` | `String` | `null` | | 41 |
+| `mobile` | `String` | `null` | | 42 |
+| `cognito_username` | `String` | `null` | | 43 |
+| `roleIds` | `String[]` | `null` | **@Deprecated** | 46 |
+| `roles` | `List<RoleBean>` | (uninitialised) | | 48 |
+
+Methods (Lombok-generated via `@Data`):
+- `getId()`, `setId(String)`, `getName()`, `setName(String)`, `getAddress()`, `setAddress(String)`, `getSuburb()`, `setSuburb(String)`, `getPostcode()`, `setPostcode(String)`, `getEmail()`, `setEmail(String)`, `getContactNo()`, `setContact_no(String)`, `getPassword()`, `setPassword(String)`, `getPin()`, `setPin(String)`, `getRefnm()`, `setRefnm(String)`, `getRefno()`, `setRefno(String)`, `getContactFname()`, `setContact_fname(String)`, `getContactLname()`, `setContact_lname(String)`, `getQuestion()`, `setQuestion(String)`, `getAnswer()`, `setAnswer(String)`, `getUnit()`, `setUnit(String)`, `getSubemail()`, `setSubemail(String)`, `getTimezone()`, `setTimezone(String)`, `getTimezoneName()`, `setTimezoneName(String)`, `getDateFormat()`, `setDateFormat(String)`, `getMaxSessionLength()`, `setMaxSessionLength(Integer)`, `getLanId()`, `setLan_id(String)`, `isPrivacy()`, `setPrivacy(boolean)`, `getTemplate()`, `setTemplate(String)`, `getAuthority()`, `setAuthority(String)`, `getMobile()`, `setMobile(String)`, `getCognitoUsername()`, `setCognito_username(String)`, `getRoleIds()`, `setRoleIds(String[])`, `getRoles()`, `setRoles(List<RoleBean>)`, `equals(Object)`, `hashCode()`, `toString()`
+
+Explicit method (private `@Builder` constructor): lines 51–79
+
+Notes:
+- `@Builder` constructor is `private` — the `CompanyBean.builder()` static factory is generated by Lombok.
+- Builder parameter `date_format` maps to field `dateFormat` (line 74); builder parameter `max_session_length` maps to field `maxSessionLength` (line 75). Both parameter names diverge from field names — a latent builder misuse risk.
+- `@Data` `toString()` will include `password`, `pin`, and `answer` in plain text — credential leak risk in logs.
+- `roleIds` is `@Deprecated` but still has generated getter/setter — no enforcement of removal.
+- `roles` list is never initialised to an empty list; callers must null-check before iterating.
+
+---
+
+### 3. DateFormatBean
+**File:** `src/main/java/com/bean/DateFormatBean.java`
+**Class:** `DateFormatBean` (line 13)
+**Annotations:** `@Data`, `@NoArgsConstructor`, `@Builder` (on private constructor, line 18–21)
+**Implements:** `Serializable` (serialVersionUID = 6809044393446776869L)
+**Sensitive fields:** none
+
+| Field | Type | Default | Line |
+|-------|------|---------|------|
+| `format` | `String` | `null` | 16 |
+
+Methods:
+
+| Method | Type | Lines | Notes |
+|--------|------|-------|-------|
+| `getFormat()` | Lombok-generated | — | |
+| `setFormat(String)` | Lombok-generated | — | |
+| `equals(Object)` | Lombok-generated | — | |
+| `hashCode()` | Lombok-generated | — | |
+| `toString()` | Lombok-generated | — | |
+| `getExample()` | Hand-written | 23–31 | Formats a fixed Calendar date (Dec 31, HH:MM:SS) using `format` field |
+
+`getExample()` detail:
+- Line 24: `Calendar.getInstance()` — uses JVM default timezone.
+- Lines 25–29: sets month=DECEMBER, day=31, hour=23, minute=59, second=59. Note `Calendar.HOUR` (12-hour) not `Calendar.HOUR_OF_DAY` (24-hour) is used, so hour 23 wraps to 11 in 12-hour representation — the example time will show 11:59:59 PM, not 23:59:59, for formats that use 12-hour notation.
+- Line 30: `new SimpleDateFormat(format)` — throws `NullPointerException` if `format` is `null` (no null-guard). Throws `IllegalArgumentException` if `format` is an invalid pattern string (no exception handling).
+
+---
+
+## Grep Results — Test Directory
+
+| Class | Grep result |
+|-------|-------------|
+| `CompEntityRelBean` | **No files found** |
+| `CompanyBean` | **No files found** |
+| `DateFormatBean` | **No files found** |
+
+None of the three classes appears in any file under `src/test/java/`.
+
+---
+
+## Coverage Gaps and Findings
+
+### CompEntityRelBean
+
+**A44-1 | Severity: HIGH | No test class exists for CompEntityRelBean**
+There is zero test coverage for `CompEntityRelBean`. All ten hand-written accessor methods (`getId`, `setId`, `getComp_id`, `setComp_id`, `getEntity_id`, `setEntity_id`, `getEntityname`, `setEntityname`, `getCompname`, `setCompname`) are completely untested. A dedicated test class must be created that exercises round-trip setter/getter pairs and verifies field defaults are `null`.
+
+**A44-2 | Severity: LOW | CompEntityRelBean has no equals/hashCode/toString**
+The class is a plain POJO with no `equals()`, `hashCode()`, or `toString()`. If instances are placed in collections or logged, behaviour is undefined/misleading. There are no tests validating object identity semantics, and no documentation of intent. This is a design gap with no test mitigation.
+
+**A44-3 | Severity: LOW | CompEntityRelBean lacks serialVersionUID**
+The class is used as a Struts bean (likely serialised to HTTP session). Absence of `serialVersionUID` will cause `InvalidClassException` if the class is modified while sessions are live. No test validates serialisation round-trip.
+
+---
+
+### CompanyBean
+
+**A44-4 | Severity: HIGH | No test class exists for CompanyBean**
+There is zero test coverage for `CompanyBean`. All Lombok-generated methods and the explicit `@Builder` constructor are completely untested.
+
+**A44-5 | Severity: CRITICAL | Sensitive fields exposed in Lombok-generated toString()**
+`@Data` generates a `toString()` that includes ALL fields, including `password` (line 24), `pin` (line 25), and `answer` (security question answer, line 31) in plain text. Any logging of a `CompanyBean` instance (e.g., in Struts action logs or debug output) will leak credentials. There is no test asserting that `toString()` excludes sensitive fields, and no `@ToString.Exclude` annotation on these fields.
+
+**A44-6 | Severity: HIGH | Builder parameter names diverge from field names — mapping tested nowhere**
+The `@Builder` private constructor accepts `date_format` (mapped to field `dateFormat`, line 74) and `max_session_length` (mapped to `maxSessionLength`, line 75). All other builder parameters match their field names. This asymmetry is untested and is a latent source of confusion where caller code using the builder may set the wrong parameter. No test validates that `builder().date_format("dd/MM/yyyy").build().getDateFormat()` returns the expected value.
+
+**A44-7 | Severity: MEDIUM | Deprecated roleIds field has no migration test**
+`roleIds` (line 46) is annotated `@Deprecated` but remains in the class with generated getter and setter. There is no test confirming that all call sites have migrated to `roles` (line 48), nor any test confirming the deprecated field is ignored/empty in production paths.
+
+**A44-8 | Severity: MEDIUM | roles list is never initialised — NullPointerException risk untested**
+The `roles` field (line 48) is a `List<RoleBean>` that is never initialised to an empty collection. Any caller that iterates `getCompanyBean().getRoles()` without a null-check will throw `NPE`. No test covers the null-list scenario or asserts initialisation behaviour.
+
+**A44-9 | Severity: LOW | CompanyBean Serializable round-trip not tested**
+`CompanyBean implements Serializable` with an explicit `serialVersionUID`. No test validates that an instance can be serialised and deserialised with field values preserved, including for the `roles` list and the `boolean privacy` primitive.
+
+---
+
+### DateFormatBean
+
+**A44-10 | Severity: HIGH | No test class exists for DateFormatBean**
+There is zero test coverage for `DateFormatBean`. Both the Lombok-generated accessors and the hand-written `getExample()` method (lines 23–31) are completely untested.
+
+**A44-11 | Severity: HIGH | getExample() throws NullPointerException when format is null — untested**
+When `DateFormatBean` is constructed via `@NoArgsConstructor`, the `format` field defaults to `null`. Calling `getExample()` on such an instance immediately throws `NullPointerException` at line 30 (`new SimpleDateFormat(format)`) because `SimpleDateFormat` does not accept a null pattern. There is no null-guard in the method and no test covering this path.
+
+**A44-12 | Severity: HIGH | getExample() propagates IllegalArgumentException for invalid format strings — untested**
+`new SimpleDateFormat(format)` at line 30 throws `IllegalArgumentException` if `format` contains an invalid pattern (e.g., `"YYYY-QQ-ZZ"`). The method provides no exception handling and there is no test verifying behaviour with malformed format strings.
+
+**A44-13 | Severity: MEDIUM | Calendar.HOUR used instead of Calendar.HOUR_OF_DAY in getExample()**
+Line 27 sets `Calendar.HOUR` (12-hour clock field) to `23`. `Calendar.HOUR` only accepts values `0–11`; setting it to `23` may produce unexpected results depending on the JVM. `Calendar.HOUR_OF_DAY` is the correct constant for 24-hour values. No test validates the actual output string of `getExample()` for any format pattern, so this defect goes undetected.
+
+**A44-14 | Severity: MEDIUM | getExample() result is timezone-dependent — untested**
+`Calendar.getInstance()` (line 24) uses the JVM default timezone. The example output will differ between environments and CI servers in different timezones. No test pins or mocks the timezone, and no test asserts the formatted string value.
+
+**A44-15 | Severity: LOW | DateFormatBean Serializable round-trip not tested**
+`DateFormatBean implements Serializable` with an explicit `serialVersionUID`. No test validates serialisation/deserialisation of the `format` field.
+
+---
+
+## Summary Table
+
+| Finding | Severity | Class | Description |
+|---------|----------|-------|-------------|
+| A44-1 | HIGH | CompEntityRelBean | No test class — all 10 accessor methods uncovered |
+| A44-2 | LOW | CompEntityRelBean | No equals/hashCode/toString — undefined collection/logging semantics, untested |
+| A44-3 | LOW | CompEntityRelBean | No serialVersionUID — session serialisation risk, untested |
+| A44-4 | HIGH | CompanyBean | No test class — all Lombok-generated methods and builder uncovered |
+| A44-5 | CRITICAL | CompanyBean | @Data toString() exposes password, pin, answer in plain text — no exclusion annotation, untested |
+| A44-6 | HIGH | CompanyBean | Builder param names (date_format, max_session_length) diverge from field names — mapping untested |
+| A44-7 | MEDIUM | CompanyBean | @Deprecated roleIds still active with no migration test |
+| A44-8 | MEDIUM | CompanyBean | roles list never initialised — NPE risk on iteration, untested |
+| A44-9 | LOW | CompanyBean | Serializable round-trip not tested |
+| A44-10 | HIGH | DateFormatBean | No test class — getExample() and all Lombok methods uncovered |
+| A44-11 | HIGH | DateFormatBean | getExample() NPE when format is null (default state) — untested |
+| A44-12 | HIGH | DateFormatBean | getExample() IllegalArgumentException on invalid format — untested |
+| A44-13 | MEDIUM | DateFormatBean | Calendar.HOUR set to 23 (invalid for 12-hr field) — defect undetected |
+| A44-14 | MEDIUM | DateFormatBean | getExample() timezone-dependent output — not pinned in any test |
+| A44-15 | LOW | DateFormatBean | Serializable round-trip not tested |
+
+**Total findings: 15**
+- CRITICAL: 1
+- HIGH: 7
+- MEDIUM: 4
+- LOW: 3
