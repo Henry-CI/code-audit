@@ -1,0 +1,30 @@
+I've completed the Pass 4 Code Quality audit for agent P36. Here's what I found:
+
+## Audit Complete âœ“
+
+**Branch verified:** multi-customer-sync-to-master âœ“
+
+**Files audited:**
+1. pages/admin/customer/site_hours.jsp
+2. pages/admin/customer/site_setup_config.jsp
+3. pages/admin/customer/update_site_hours.jsp
+4. pages/admin/customer/view.jsp
+
+## Key Findings Summary
+
+**28 total findings** identified:
+- **HIGH (3):** Active debug alert in production code, undefined JavaScript functions causing runtime errors, duplicate option values
+- **MEDIUM (19):** Extensive commented-out code blocks, raw ArrayList types generating compiler warnings, customer-specific hardcoded logic
+- **LOW (6):** Inconsistent naming conventions, hardcoded UI strings bypassing i18n, typos in resource keys
+
+## Major Issues Highlighted
+
+1. **Active debug alert** (update_site_hours.jsp:23) - Will disrupt users in production
+2. **Undefined functions** refresh() and copy_settings() (update_site_hours.jsp:241, 243) - JavaScript runtime errors
+3. **Duplicate select options** (site_setup_config.jsp:96-97) - Both options have value "mk1"
+4. **19 instances of commented-out code** - Significant clutter throughout all files
+5. **Raw ArrayList types** - Throughout all files, generating unchecked type warnings
+6. **Hardcoded customer logic** - Customer IDs '27' and '28' hardcoded in configuration UI
+
+The full report with reading evidence and detailed findings has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P36-temp.md`

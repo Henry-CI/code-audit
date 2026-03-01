@@ -1,0 +1,24 @@
+Documentation audit complete! I've analyzed all 10 JSP files and created a comprehensive report at:
+
+**C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass3/P25.md**
+
+## Summary
+
+**45 documentation findings** across 10 files:
+
+**By Severity:**
+- **HIGH (3):** Undocumented destructive operations, missing Javadoc for public Java method, complex validation without docs
+- **MEDIUM (19):** Functions with validation logic, AJAX calls, form submissions
+- **LOW (21):** Simple utility functions, inline comments needing proper JSDoc
+- **INFO (2):** Missing file-level documentation for AJAX endpoints
+
+**Key Issues Found:**
+1. 33 JavaScript functions lack proper JSDoc documentation
+2. 10 functions have inaccurate copy-pasted inline comments (e.g., "fetch users" when actually fetching sites)
+3. The public Java method `disableField()` in frm_service_status.jsp lacks Javadoc
+4. `GetXmlHttpObject()` utility is duplicated 4 times without documentation
+5. Destructive operation `deleteReminder()` lacks security documentation
+6. Complex validation functions like `fnupdate()` lack documentation of validation rules
+7. AJAX endpoints (get_assigned_vehicle.jsp, get_codes.jsp) lack API documentation
+
+All findings include specific remediation steps. Report only - no code changes made.

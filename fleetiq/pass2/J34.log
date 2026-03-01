@@ -1,0 +1,25 @@
+Perfect! I've completed the security audit Pass 2 Test Coverage analysis for agent J34. 
+
+## Summary
+
+I analyzed three source files:
+1. **TableServlet.java** - 694 lines, 7 methods, 0 tests
+2. **Utilisation.java** - 1,262 lines, 29 methods, 0 tests  
+3. **Frm_MaxHourUsage.java** - 197 lines, 5 methods, 0 tests
+
+### Key Findings:
+
+**30 total findings identified:**
+- **10 CRITICAL** - All SQL injection vulnerabilities from concatenating user input into queries
+- **13 HIGH** - Session handling, path traversal, missing validation, memory leaks
+- **7 MEDIUM** - Error handling, resource cleanup, edge cases
+
+**Most Critical Issues:**
+1. **SQL Injection everywhere** - All database queries use string concatenation instead of PreparedStatement
+2. **Path Traversal** - File paths built from database without validation  
+3. **Zero test coverage** - The entire repository has only 1 test file (EncryptTest.java), unrelated to these servlets
+4. **Session attribute access** - No null checking before parsing dealer_id, access_level, etc.
+5. **Thread safety** - Instance variables in servlets not protected for concurrent access
+
+The complete audit report has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass2/J34.md`

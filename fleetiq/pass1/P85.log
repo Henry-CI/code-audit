@@ -1,0 +1,25 @@
+Perfect! I've completed the security audit for agent P85. The report has been written to `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/P85.md`.
+
+## Summary of Findings:
+
+**CRITICAL (2):**
+- Missing authentication check allowing unauthenticated report access (xlsx_report.jsp)
+- IDOR vulnerability allowing unrestricted report access via rpt_name parameter
+
+**HIGH (4):**
+- Missing access level validation in report email functionality
+- IDOR allowing unauthorized report emails
+- Missing CSRF protection on mail form
+- Missing customer scoping validation in multi-tenant reports
+
+**MEDIUM (4):**
+- Multiple XSS vulnerabilities via unescaped output (mail_id, rpt_name, params)
+
+**LOW (3):**
+- Potential path traversal via directory construction
+- NullPointerException risks from unchecked null session attributes (2 instances)
+
+**INFO (1):**
+- Wildcard imports
+
+The most critical issues are in **xlsx_report.jsp** which has no authentication checks at all, allowing anyone to access any report by directly calling the JSP. Combined with the IDOR vulnerabilities, this represents a complete bypass of the application's security model.

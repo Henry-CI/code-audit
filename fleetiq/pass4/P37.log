@@ -1,0 +1,50 @@
+Perfect! I've completed the Pass 4 Code Quality audit for Agent P37. Here's what I found:
+
+## Summary
+
+**Branch Verified:** âœ“ multi-customer-sync-to-master
+
+**Files Reviewed:** 4 JSP files
+- pages/admin/dealer/add-general.jsp
+- pages/admin/dealer/edit-general.jsp
+- pages/admin/dealer/edit.jsp
+- pages/admin/dealer/view.jsp
+
+**Total Findings:** 44 findings
+
+### Findings Breakdown by Category:
+
+1. **Commented-out Code** (10 findings - MEDIUM severity)
+   - GMTP Prefix fields, Contact No fields, debug statements
+   - Each block creates maintenance confusion and clutter
+
+2. **Dead Code** (19 findings - LOW severity)
+   - Unused variables (mach_pic, vpic_list, usr_active, p_customer)
+   - Unused ArrayLists (User_Form_Menu_View, Edit, Delete, Print, Customer_Sites, Customer_Dept)
+   - Variables immediately overwritten (usr_gp assigned then set to "1")
+
+3. **Security Issues** (2 findings - HIGH severity)
+   - **F40**: Potential XSS vulnerability - unescaped user output throughout all files
+   - **F41**: Session permission array used without null check
+
+4. **Leaky Abstractions** (2 findings - MEDIUM severity)
+   - Tight coupling to filter bean implementation
+   - Mixed presentation and business logic in JSPs
+
+5. **Style Inconsistencies** (7 findings - LOW severity)
+   - Inconsistent variable naming (usr_cd vs user_cd)
+   - Inconsistent null-checking patterns
+   - Non-standard HTML element <spsn> instead of <span>
+   - Magic numbers in switch statement
+
+6. **Build Warnings** (1 finding - MEDIUM severity)
+   - Raw ArrayList types without generics
+
+7. **Other Quality Issues**
+   - HTML tag mismatch in view.jsp
+   - Missing error handling for bean initialization
+   - Debug output left in production code
+   - Deprecated scriptlet usage (INFO)
+
+The complete audit report with all findings, reading evidence, and specific remediation recommendations has been written to:
+**C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P37-temp.md**

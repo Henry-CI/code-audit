@@ -1,0 +1,18 @@
+Security audit agent P31. Repository: C:/Projects/cig-audit/repos/fleetiq. Branch: multi-customer-sync-to-master.
+1. Verify branch: run git -C "C:/Projects/cig-audit/repos/fleetiq" branch --show-current - must be multi-customer-sync-to-master. STOP if wrong.
+2. Read: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/AGENT-INSTRUCTIONS.md
+3. Read: C:/Projects/cig-audit/audit-skills/PASS1-CHECKLIST-ff-new.md
+4. Read EACH file IN FULL (paths relative to C:/Projects/cig-audit/repos/fleetiq/):
+pages/admin/Reports.jsp
+pages/admin/Send_Driver_Limiting_by_Truck.jsp
+pages/admin/Send_Driver_Settings_to_Unit.jsp
+pages/admin/Settings.jsp
+pages/admin/SpecialAdminRights.jsp
+pages/admin/Statistics.jsp
+pages/admin/Users.jsp
+pages/admin/Vehicles.jsp
+pages/admin/Vtest.jsp
+pages/admin/Vttest.jsp
+5. Produce reading evidence for every file FIRST, then review against all applicable checklist sections.
+6. Write output to: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/P31.md
+Report only - do NOT fix anything.

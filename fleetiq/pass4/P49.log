@@ -1,0 +1,25 @@
+Perfect! I've completed the Pass 4 Code Quality audit for agent P49. Here's what I found:
+
+## Summary
+
+I reviewed both JSP files and identified **17 code quality findings**:
+
+- **2 MEDIUM** severity issues: Raw type usage for ArrayList collections (will generate compiler warnings)
+- **12 LOW** severity issues: Unused imports, unused variables, and naming inconsistencies  
+- **3 INFO** severity issues: Minor formatting inconsistencies
+
+### Key Findings:
+
+1. **Raw Type Usage** - Both files use ArrayList without generic type parameters (lines 4-12 in first file, 5-12 in second), which generates unchecked compiler warnings and reduces type safety
+
+2. **Dead Code** - Multiple unused variables:
+   - Unused import: `org.apache.commons.codec.language.bm.Rule.RPattern`
+   - Unused variables: `get_gp`, `get_user`, `get_loc`, `get_dep`, `form_nm`, `selected`
+
+3. **Style Inconsistencies**:
+   - Mixed naming conventions (snake_case vs camelCase with prefixes)
+   - Inconsistent prefix capitalization (vdept_cd vs Vuser_cd)
+   - Minor formatting issues (trailing spaces, inconsistent blank lines)
+
+The two files are nearly identical and share the same issues, suggesting they were duplicated without proper cleanup. The audit report has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P49-temp.md`

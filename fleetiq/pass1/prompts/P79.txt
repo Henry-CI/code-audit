@@ -1,0 +1,18 @@
+Security audit agent P79. Repository: C:/Projects/cig-audit/repos/fleetiq. Branch: multi-customer-sync-to-master.
+1. Verify branch: run git -C "C:/Projects/cig-audit/repos/fleetiq" branch --show-current - must be multi-customer-sync-to-master. STOP if wrong.
+2. Read: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/AGENT-INSTRUCTIONS.md
+3. Read: C:/Projects/cig-audit/audit-skills/PASS1-CHECKLIST-ff-new.md
+4. Read EACH file IN FULL (paths relative to C:/Projects/cig-audit/repos/fleetiq/):
+reports/rpt_call_driver_licence_msg.jsp
+reports/rpt_call_dup_session.jsp
+reports/rpt_call_ftp_fleet_questions.jsp
+reports/rpt_call_mail.jsp
+reports/rpt_call_recover_session.jsp
+reports/rpt_call_remove_old_pstat.jsp
+reports/rpt_canvas_disp_ajax.jsp
+reports/rpt_cfts_alert.jsp
+reports/rpt_check_driver_expiry.jsp
+reports/rpt_check_driver_medical.jsp
+5. Produce reading evidence for every file FIRST, then review against all applicable checklist sections.
+6. Write output to: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/P79.md
+Report only - do NOT fix anything.

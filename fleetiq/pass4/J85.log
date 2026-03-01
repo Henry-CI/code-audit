@@ -1,0 +1,35 @@
+Perfect! I've completed the Pass 4 Code Quality audit for Agent J85. Here's what I found:
+
+## Summary
+
+**Files Audited:** 3 Java utility files
+- password_life.java (decompiled legacy code)
+- password_policy.java  
+- send_timezone.java
+
+**Total Findings:** 24 code quality issues
+
+### Key Issues Identified:
+
+**Critical/High Severity:**
+- **F08, F10**: Public field exposure violating encapsulation in both password classes
+- **F23**: Logic bug - wrong timezone variable checked for South Australia
+
+**Medium Severity:**
+- **F07, F09**: Leaky abstractions exposing internal query strings
+- **F12, F14, F15**: Multiple unused fields cluttering the codebase
+- **F17**: Commented-out code that should be removed or reinstated
+- **F18**: Duplicate SQL execution wasting resources
+- **F19**: Raw ArrayList types causing compiler warnings
+
+**Low Severity:**
+- **F01-F03**: Naming convention violations (snake_case classes)
+- **F04-F06**: Unused imports
+- **F11, F13, F16**: Unused variables
+- **F20-F22**: Style inconsistencies and error message issues
+
+**Info:**
+- **F24**: File contains decompiled source code from 2006
+
+The complete audit report with reading evidence and detailed findings has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-J85-temp.md`

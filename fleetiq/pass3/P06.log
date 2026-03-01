@@ -1,0 +1,17 @@
+Documentation audit complete! I've analyzed all 10 JSP files in the au_print directory and written the findings to `P06.md`.
+
+## Summary
+
+**30 findings identified** across 10 JSP report files:
+- **10 HIGH severity**: Undocumented security-critical access level control (duplicated across all files)
+- **16 MEDIUM severity**: Missing file-level docs, undocumented business logic (service calculations, severity color coding, filtering logic)
+- **4 LOW severity**: No inline comments, undocumented auto-print behavior, unexplained includes
+
+## Key Issues
+
+1. **Security gap**: All 10 files have identical access level control code (lines 20-40) with zero documentation explaining security model, access levels, or data restrictions
+2. **Zero file-level documentation**: Not a single file explains its purpose, parameters, or business context
+3. **Complex undocumented logic**: Service maintenance calculations, severity color coding, completion status filtering, question type mappings - all lack explanation
+4. **Massive duplication**: Same security code, same patterns repeated across files without centralized docs
+
+The report includes detailed reading evidence for each file (scriptlet blocks, methods invoked, parameters) and specific remediation recommendations for each finding.

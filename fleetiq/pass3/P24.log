@@ -1,0 +1,23 @@
+Documentation audit complete! I've analyzed all 10 JSP files and written a comprehensive report to `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass3/P24.md`.
+
+## Key Findings:
+
+**Scope:**
+- 10 JSP files reviewed
+- 62 JavaScript functions analyzed
+- **0% documentation coverage** (62/62 functions undocumented)
+
+**Critical Issues:**
+1. **CRITICAL severity (1):** The `returnKey()` function in frm_new_user.jsp implements global keyboard event handling for card swipe operations with complex Wiegand data capture - completely undocumented
+
+2. **HIGH severity (8):** Security-critical functions including:
+   - Complex form validation with conditional logic (saveform in frm_new_user.jsp, frm_new_vehicle1.jsp)
+   - AJAX duplicate card/code validation (validateCard, chk_card, chk_acode)
+   - Input sanitization (check_text)
+   - Complex AJAX cascades in frm_override_codes.jsp
+
+3. **MEDIUM severity (30):** Standard validation functions, form submission handlers, and data population functions
+
+All findings include specific remediation recommendations with parameter documentation requirements (@param, @return tags) and business logic explanations needed.
+
+The report is ready for review at the specified location.

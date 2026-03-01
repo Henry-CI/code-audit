@@ -1,0 +1,26 @@
+Perfect! I've completed the P17 test coverage audit. Here's what I found:
+
+## Summary
+
+**File reviewed:** index.jsp  
+**Branch verified:** âœ… multi-customer-sync-to-master  
+**Test coverage:** 0%
+
+### Key Findings:
+
+1. **CRITICAL**: No test framework exists in the entire repository - no JUnit, TestNG, Selenium, or any testing infrastructure at all
+
+2. **MEDIUM severity** (3 findings):
+   - No tests for redirect functionality (could miss open redirect vulnerabilities)
+   - No tests catching the JavaScript syntax error on line 10 (`location.href(url)` should be `location.href = url`)
+   - No tests verifying the redirect target (pages/login.jsp) exists and is accessible
+
+3. **LOW severity** (3 findings):
+   - No HTML structure validation tests (orphaned closing div tag)
+   - No tests for the empty, purposeless form
+   - No character encoding handling tests
+
+### Critical Issue Identified:
+The JavaScript redirect on line 10 has a **syntax error** - it attempts to call `location.href` as a function when it should be a property assignment. The page still redirects via the meta refresh tag (line 4), but this represents a completely untested failure path.
+
+The audit report has been written to: `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass2/P17.md`

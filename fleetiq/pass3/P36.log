@@ -1,0 +1,38 @@
+Perfect! I've completed the P36 Pass 3 documentation audit. Here's what I found:
+
+## Summary of Audit Results
+
+**Files reviewed:** 4 JSP files
+- site_hours.jsp
+- site_setup_config.jsp  
+- update_site_hours.jsp
+- view.jsp
+
+**Branch verified:** âœ“ multi-customer-sync-to-master
+
+### Key Findings
+
+**Total: 14 findings**
+- ðŸ”´ HIGH (1): Duplicate `fnupdate` implementation with differences and no documentation
+- ðŸŸ¡ MEDIUM (4): Undocumented JavaScript functions with complex validation logic, plus active debugging alert in production
+- ðŸ”µ LOW (5): Undocumented main processing scriptlet blocks
+- âšª INFO (4): Missing file-level documentation
+
+### Notable Issues Discovered
+
+1. **Duplicate Code**: The `fnupdate()` function exists in both `site_hours.jsp` and `update_site_hours.jsp` with subtle differences - one has an active debugging alert that will annoy users
+
+2. **Complex Undocumented Logic**: 
+   - Hour/minute validation with special rules (24:00 allowed, but 24:01 not)
+   - Customer-specific reader type configuration (special cases for customers 27 & 28)
+   - Dynamic dropdown population logic
+
+3. **No Documentation Anywhere**: 
+   - Zero JavaScript functions have JSDoc comments
+   - Zero scriptlet blocks have explanatory comments
+   - Zero files have header documentation
+
+4. **Security-Critical Code**: Access control setup in scriptlets has no documentation explaining the security model
+
+The full report with detailed findings and recommended fixes has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass3/P36.md`

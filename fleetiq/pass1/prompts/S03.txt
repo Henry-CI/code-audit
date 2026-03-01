@@ -1,0 +1,15 @@
+Security audit agent S03. Repository: C:/Projects/cig-audit/repos/fleetiq. Branch: multi-customer-sync-to-master.
+1. Verify branch: run git -C "C:/Projects/cig-audit/repos/fleetiq" branch --show-current - must be multi-customer-sync-to-master. STOP if wrong.
+2. Read: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/AGENT-INSTRUCTIONS.md
+3. Read: C:/Projects/cig-audit/audit-skills/PASS1-CHECKLIST-ff-new.md
+4. Read EACH file IN FULL (paths relative to C:/Projects/cig-audit/repos/fleetiq/):
+sql/sp_equipment_bypass_alert.sql
+sql/sp_get_driver_name.sql
+sql/sp_opchks_response.sql
+sql/sp_pstat_message.sql
+sql/sp_store_mk3dbg.sql
+sql/time_zone_impl.sql
+sql/time_zone_impl_varchar_int.sql
+5. Produce reading evidence for every file FIRST, then review against all applicable checklist sections.
+6. Write output to: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/S03.md
+Report only - do NOT fix anything.

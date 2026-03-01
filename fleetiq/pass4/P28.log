@@ -1,0 +1,28 @@
+Perfect! I've completed the Pass 4 Code Quality audit for P28. Here's a summary of what I found:
+
+## Audit Summary
+
+**Files Reviewed:** 
+- menu/menu-new.jsp
+- menu/menu.jsp
+
+**Total Findings:** 18 code quality issues
+
+### Findings Breakdown:
+- **3 CRITICAL:** None
+- **7 MEDIUM:** Commented-out code blocks, String == comparison bug, raw types, leaky abstractions
+- **11 LOW:** Dead code (unused variables/arrays), style inconsistencies, deprecated HTML tags
+
+### Key Issues Identified:
+1. **Commented-out code** in 3 locations (changePage function, HTML submenu, JavaScript animations)
+2. **String comparison bug** using `==` instead of `.equals()` 
+3. **Raw ArrayList types** without generics (deprecated, causes compiler warnings)
+4. **Dead code**: Unused arrays, variables, and ArrayList declarations
+5. **Leaky abstractions**: Direct session access, hardcoded paths throughout
+6. **Style inconsistencies**: Variable naming, path structures differ between files
+7. **Deprecated HTML**: `<font>` tags still in use
+
+The complete audit report with all 18 findings has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P28-temp.md`
+
+Each finding includes severity rating, detailed description, specific remediation steps, file path, and line numbers as requested.

@@ -1,0 +1,29 @@
+I've completed the Pass 4 Code Quality audit for the 10 JSP files. The report has been written to:
+
+**C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P67-temp.md**
+
+## Audit Summary
+
+**Files Reviewed:** 10 JSP files (email reports and Excel exports)
+
+**Total Findings:** 40
+- **HIGH:** 2 (NPE risks on session attributes)
+- **MEDIUM:** 11 (dead code blocks, commented code, inconsistent patterns)
+- **LOW:** 24 (unused variables, style issues, hardcoded values)
+- **INFO:** 3 (minor display issues)
+
+### Key Issues Identified:
+
+1. **Systematic Dead Code Pattern** (7 files): Access level hardcoded to "1" followed by an unreachable conditional check that would set it to "5" - this dead code block appears in email_unit_unlock_question, email_users_login_report, email_util_wow, email_util_wow_pivot, email_utilisation, email_vor_report, and email_vor_unit_report
+
+2. **Unused Variable** (all 10 files): Variable `al` is calculated but never used
+
+3. **Potential NPE Vulnerabilities** (2 files): excel_battery.jsp and excel_battery_change.jsp retrieve access_level from session without null checks before calling .equalsIgnoreCase()
+
+4. **Commented-Out Code** (2 files): Response header code commented in email_util_wow.jsp and email_util_wow_pivot.jsp
+
+5. **Inconsistent Access Control**: Email reports hardcode access_level="1" while Excel reports retrieve from session
+
+6. **Hardcoded URLs**: Multiple files contain hardcoded fms.fleetiq360.com URLs instead of using configuration properties
+
+The report includes complete reading evidence for each file and detailed remediation steps for all findings.

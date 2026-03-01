@@ -1,0 +1,33 @@
+Documentation audit complete! I've successfully analyzed all 10 JSP files and generated the P35.md report.
+
+## Summary
+
+**Files Reviewed:** 10 JSP files in pages/admin/customer/
+- edit-site_hours_settings.jsp (commented out)
+- edit-sites.jsp
+- edit-sites_b.jsp
+- edit.jsp
+- email-group-list.jsp
+- email-group.jsp
+- firmware.jsp
+- firmware_filtered.jsp
+- model_config.jsp
+- other-settings.jsp
+
+**Key Findings:**
+- **35 total documentation gaps identified**
+- **6 HIGH severity** findings (security-sensitive code without documentation)
+- **18 MEDIUM severity** findings (complex logic, initialization blocks)
+- **6 LOW severity** findings (templates, simple functions)
+- **5 INFO severity** findings (missing file headers)
+
+**Critical Issues:**
+1. **Hardcoded user access control** (edit-sites_b.jsp) - No documentation explaining why specific user_cd values have special access
+2. **Firmware admin access** (edit.jsp, firmware.jsp) - Security-sensitive firmware management lacks documentation
+3. **Complex database error recovery** (firmware.jsp) - Sophisticated retry logic undocumented
+4. **Permission matrix usage** - All files use 2D permission array with no explanation of structure
+
+**No Javadoc-style or equivalent documentation was found in any of the 10 files reviewed.**
+
+The complete audit report has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass3/P35.md`

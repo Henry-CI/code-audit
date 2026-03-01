@@ -1,0 +1,32 @@
+âœ… **Security Audit J71 - Pass 2 Test Coverage - COMPLETE**
+
+**Branch verified:** multi-customer-sync-to-master âœ“
+
+**Files audited:**
+1. GetGenericData.java (94 lines, 5 methods)
+2. Frm_security.java (4,565 lines, 52 methods)
+3. Frm_vehicle.java (14,485 lines, 60 methods)
+
+**Critical findings:**
+- **ZERO test coverage** for all three security-critical servlet classes
+- **117 total methods** with no automated tests
+- **No test files** exist for any of these classes
+- Only 1 test file in entire repository (EncryptTest.java - unrelated)
+
+**Report written:** `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass2/J71.md` (48 KB)
+
+**30 findings documented:**
+- ðŸ”´ **6 CRITICAL** - Authentication, CSRF validation, rate limiting, file uploads, password management, SQL injection
+- ðŸŸ  **9 HIGH** - Authorization, vehicle control, firmware updates, email security, configuration management
+- ðŸŸ¡ **12 MEDIUM** - CRUD operations, validation, configuration, notifications
+- ðŸ”µ **3 LOW** - Utility functions, edge cases
+
+**Most critical gaps:**
+1. Authentication logic (chk_login, new_login) - completely untested
+2. CSRF token validation - no verification of security control
+3. Rate limiting functions - brute force protection unverified
+4. File upload handlers - no security validation tests
+5. Password reset/change - BCrypt hashing and token validation untested
+6. Vehicle control commands - no authorization or injection tests
+
+The report includes complete reading evidence with all methods, fields, and line numbers for each file, plus specific remediation guidance for each finding.

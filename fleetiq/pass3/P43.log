@@ -1,0 +1,24 @@
+âœ… **Documentation audit complete for Agent P43 - Pass 3**
+
+**Summary:**
+- **Branch verified:** multi-customer-sync-to-master âœ“
+- **Files audited:** 10 JSP report files
+- **Total findings:** 30 documentation gaps
+
+**Findings breakdown:**
+- **HIGH (4):** Undocumented security-critical access control logic, duplicate code patterns
+- **MEDIUM (11):** Undocumented JavaScript functions, complex logic, site-specific behavior
+- **LOW (12):** Missing file-level documentation, unused parameters
+- **INFO (3):** Backup/template files, debug statements
+
+**Key issues identified:**
+1. All 10 files lack file-level documentation explaining purpose and usage
+2. Security-critical access control logic (lines 20-40 in most files) is undocumented across all files
+3. JavaScript functions in `unit_utilisation_by_hour.jsp` (`util_by_hour()`, `showTooltip()`, `showFormatSel()`) have no JSDoc comments
+4. Duplicate files with different spellings (UK vs US) exist without explanation
+5. Site-specific conditional logic for AU/MLA regions lacks documentation
+6. Access control substring operations appear in multiple files without explanation
+
+**Output written to:** `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass3/P43.md`
+
+The report includes detailed reading evidence for each file (scriptlet blocks, JSP beans, variables, functions) and specific remediation recommendations for each finding.

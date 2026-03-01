@@ -1,0 +1,29 @@
+I've completed the Pass 2 Test Coverage audit for Agent P11. Here's what I found:
+
+## Summary
+
+**Branch verified:** âœ… multi-customer-sync-to-master
+
+**Files audited:** 8 JSP files in the dyn_report directory
+
+**Test coverage:** **0%** - No test files exist for any of these JSP files
+
+**Critical findings:** 15 total findings
+- **CRITICAL (2):** Session-based access control and SQL injection prevention have no test coverage
+- **HIGH (4):** XSS prevention, do_list parsing, date validation, and nested ArrayList access untested
+- **MEDIUM (6):** Internationalization, JavaScript security, configuration dependencies, permissions, calculations, and external config
+- **LOW (2):** Initialization and empty dataset handling
+- **INFO (1):** Potential duplicate variable bug in rpt_dyn_unit_report.jsp
+
+## Key Security Risks
+
+1. **Access Control (CRITICAL):** All files implement session-based access control with default level "5" when empty, but no tests verify this actually restricts unauthorized access
+
+2. **SQL Injection (CRITICAL):** The `Databean_dyn_reports.init()` method processes user inputs and constructs database queries, but has no test coverage for input validation or SQL injection prevention
+
+3. **XSS (HIGH):** Request parameters are extracted and displayed in HTML output without visible encoding - no tests verify XSS prevention
+
+4. **DoS Risk (HIGH):** StringTokenizer-based parsing of `do_list` parameter has no validation against malicious inputs or very long strings
+
+The complete audit report with detailed reading evidence and all findings has been written to:
+**C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass2/P11.md**

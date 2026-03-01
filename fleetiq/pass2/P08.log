@@ -1,0 +1,27 @@
+Perfect! I've completed the Pass 2 Test Coverage audit for agent P08. Here's what I found:
+
+## Summary
+
+**Files Reviewed:**
+- `dashboard/jsp/header_vor_status.jsp`
+- `dashboard/jsp/summary.jsp`
+
+**Test Coverage: 0%** - No test files exist for these JSP files or their associated servlets.
+
+**Total Findings: 24**
+
+**Critical Issues Identified:**
+1. **6 CRITICAL SQL Injection vulnerabilities** - All search parameters in TableServlet methods concatenate user input directly into SQL queries without parameterization
+2. **1 CRITICAL XSS vulnerability** - Direct output of request parameters without HTML encoding in header_vor_status.jsp
+3. **6 HIGH severity issues** - Including untested permission checks, session handling without null checks, and authorization logic that could allow data access bypass
+4. **11 MEDIUM issues** - Resource leak potential, error handling gaps, complex untested business logic
+5. **1 LOW issue** - Duplicate query execution
+
+**Most Critical Security Gaps:**
+- SQL injection in search parameters (lines 119-124, 226-230, 324-328, 419-425, 548-550 in TableServlet.java)
+- XSS vulnerability (lines 3-4 in header_vor_status.jsp)  
+- Access level authorization logic completely untested across all Summary servlet methods
+- Session attribute extraction with substring operations that will throw exceptions if attributes are null or too short
+
+The full audit report with detailed findings, reading evidence, and specific remediation recommendations has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass2/P08.md`

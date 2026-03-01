@@ -1,0 +1,23 @@
+Documentation audit for Agent P15 is complete! I've analyzed all 10 JSP include files and created the report at:
+
+**C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass3/P15.md**
+
+## Summary
+
+**Files Reviewed:** 10 JSP include files (report headers, footers, and navigation components)
+
+**Total Findings:** 15 documentation gaps
+
+**Severity Breakdown:**
+- HIGH: 2 (complex JavaScript logic, complex scriptlet logic)
+- MEDIUM: 3 (undocumented scriptlet blocks)
+- LOW: 10 (missing file-level documentation)
+
+## Key Issues Found:
+
+1. **No file-level documentation** - All 10 JSP files lack header comments explaining their purpose and usage
+2. **Undocumented business logic** - Complex scriptlet blocks with filter defaults and access level checks have no explanatory comments
+3. **Critical JavaScript logic undocumented** - report_footer.jsp contains 130+ lines of date picker logic with customer-specific restrictions (Dixon vs others) and form-specific date range limits, but no documentation explaining the business rules
+4. **Missing variant explanations** - Multiple header variants (basic, keyword, nodate, nodate_model) exist with no documentation explaining when to use each
+
+The report includes detailed reading evidence for each file and specific fix recommendations for all findings.

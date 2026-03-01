@@ -1,0 +1,31 @@
+Perfect! I've completed the Pass 4 Code Quality audit for agent P11. Here's what I found:
+
+## Summary
+
+**Files Audited:** 8 JSP files in the dyn_report directory
+**Total Findings:** 16 distinct code quality issues
+
+### Breakdown by Category:
+
+**Dead Code (8 findings - LOW severity):**
+- Unused parameters: `undo_list`, `sort_by`, `sort_asc`, `message` retrieved but never used across all files
+- Unused variable `al` (parsed access level never used)
+- Redundant null checks on StringTokenizer instances
+- Unused substring operations on access control variables
+- Duplicate variable assignment retrieving same data twice
+
+**Commented-Out Code (4 findings - MEDIUM severity):**
+- Large HTML table block (13 lines) in print_dyn_unit_report_exc.jsp
+- Multiple commented table cell fragments
+- Commented color assignment logic
+
+**Style Inconsistencies (4 findings - LOW severity):**
+- Inconsistent dealerDateFormat handling across similar files
+- Inconsistent multi-tenant site checks (LindeConfig.siteName)
+- Incorrect HTML tag usage (</th> instead of </td>)
+- Mixed naming conventions (snake_case parameters vs camelCase bean properties)
+
+The complete audit report with reading evidence, all findings, and specific remediation recommendations has been written to:
+**C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P11-temp.md**
+
+All findings follow the required format with Severity, Description, Fix, File, and Line(s) fields. No fixes were applied - this is a report-only audit as requested.

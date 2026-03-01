@@ -1,0 +1,21 @@
+Pass 4 Code Quality audit complete for agent P12. I've reviewed all three JSP files and documented the findings.
+
+## Summary
+
+**Files reviewed:** 
+- exporter/checklist.jsp
+- exporter/users.jsp  
+- exporter/vehicles.jsp
+
+**Total findings:** 24
+- **MEDIUM (4):** Raw type usage without generics (build warnings), incorrect filename in Content-Disposition header
+- **LOW (20):** Unused variables, dead code, inconsistent Content-Type headers, inconsistent ResourceBundle instantiation
+
+**Key issues identified:**
+1. All three files use raw ArrayList types without generics, generating unchecked compiler warnings
+2. checklist.jsp has wrong filename in download header ("vehicles.csv" instead of checklist)
+3. Extensive unused variables retrieved from filter beans (wasted database overhead)
+4. Inconsistent Content-Type headers across files (text/html vs application/octet-stream)
+5. Multiple unused local variables (dt, al, Total_Users, map_deets, etc.)
+
+Output written to: `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P12-temp.md`

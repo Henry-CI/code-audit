@@ -1,0 +1,27 @@
+Security audit completed successfully! I've written the findings to `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/P73.md`.
+
+## Summary of Findings
+
+I identified **10 security findings** across the 10 JSP files:
+
+**CRITICAL (1):**
+- Missing multi-tenant data isolation check in hire_vehicle_lst1.jsp
+
+**HIGH (4):**
+- XSS in message parameter (3 files: mail_conf.jsp, mail_conf_au.jsp, mail_conf_monthly.jsp)
+- XSS in JavaScript context (mail_conf_monthly.jsp)
+- XSS in email display (mail_report.jsp)
+- Missing CSRF protection on all forms
+
+**MEDIUM (3):**
+- Potential SSRF via URL parameter manipulation (mail_report.jsp)
+- Unescaped database output across multiple files
+- Weak access level defaults when session is empty
+
+**LOW (1):**
+- Information disclosure via console logging (param_test.jsp)
+
+**INFO (1):**
+- Potentially unsafe path construction (param_test.jsp)
+
+The report includes detailed reading evidence for each file (imports, includes, useBeans, scriptlets, and expression outputs) and explicitly lists which checklist items had no issues found.

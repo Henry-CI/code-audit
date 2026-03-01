@@ -1,0 +1,23 @@
+I've completed the Pass 4 Code Quality audit for the three Java files. The audit report has been written to `C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-J42-temp.md`.
+
+## Summary of Findings:
+
+**17 total findings identified:**
+
+### HIGH Severity (1):
+- **Class name typo**: EmailRestictedAccessUsageReport should be EmailRestrictedAccessUsageReport
+
+### MEDIUM Severity (4):
+- **Raw type usage** in EmailPreOpChkFailReport.java (ArrayList without generics)
+- **Raw type usage** in EmailPreOpChkReport.java (ArrayList without generics)
+- **Commented-out code** in EmailPreOpChkFailReport.java (lines 216-217)
+- **Commented-out code** in EmailPreOpChkReport.java (lines 218-219)
+
+### LOW Severity (12):
+- Duplicate imports of ArrayList in both PreOp report files
+- Multiple unused imports (Arrays, FormulaEvaluator, File)
+- Unused local variables (UnitDAO, CustomerDAO, FormulaEvaluator, temp)
+- Unused method call results (get_user, get_loc, get_dep, form_nm)
+- Empty statement (unnecessary semicolon)
+
+The reading evidence section documents all public methods with line numbers and fields for each class. All findings follow the specified format with Severity, Description, Fix, File, and Line(s) fields.

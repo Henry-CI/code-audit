@@ -1,0 +1,29 @@
+Perfect! I've completed the Pass 4 Code Quality audit for agent P07. Here's a summary of what I found:
+
+## Audit Summary
+
+**Files Audited:**
+- au_print/print_util_summary.jsp
+- au_print/print_util_wow.jsp
+- au_print/print_utilisation.jsp
+
+**Total Findings: 29**
+- **HIGH:** 3 (Potential NullPointerException vulnerabilities)
+- **MEDIUM:** 11 (Commented code, raw types, deprecated HTML, error handling)
+- **LOW:** 11 (Unused variables, style inconsistencies, naming conventions)
+- **INFO:** 3 (Auto-close behavior making debugging difficult)
+
+## Critical Issues Identified:
+
+1. **High Severity - NPE Risk (F07-F09):** All three files call `access_level.equalsIgnoreCase("")` without null checks, which will crash if session attributes are missing.
+
+2. **Medium Severity - Raw Types (F04-F06):** Extensive use of ArrayList without generics, generating unchecked compiler warnings in all files.
+
+3. **Medium Severity - Commented Code (F01):** print_util_wow.jsp contains a commented-out table block that should be removed.
+
+4. **Medium Severity - Deprecated HTML (F15-F17):** All files use deprecated `bgcolor` attributes instead of CSS.
+
+5. **Code Duplication (F10):** Identical access control logic duplicated across all three files.
+
+The complete audit report with all 29 findings has been written to:
+`C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/p4-P07-temp.md`

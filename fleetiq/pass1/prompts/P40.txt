@@ -1,0 +1,18 @@
+Security audit agent P40. Repository: C:/Projects/cig-audit/repos/fleetiq. Branch: multi-customer-sync-to-master.
+1. Verify branch: run git -C "C:/Projects/cig-audit/repos/fleetiq" branch --show-current - must be multi-customer-sync-to-master. STOP if wrong.
+2. Read: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/AGENT-INSTRUCTIONS.md
+3. Read: C:/Projects/cig-audit/audit-skills/PASS1-CHECKLIST-ff-new.md
+4. Read EACH file IN FULL (paths relative to C:/Projects/cig-audit/repos/fleetiq/):
+pages/admin/reports/driver_licence_expiry_report.jsp
+pages/admin/reports/driver_proficiency_report.jsp
+pages/admin/reports/email_subscription_report.jsp
+pages/admin/reports/email_subscription_report_uk.jsp
+pages/admin/reports/equipment_bypass_alert_report.jsp
+pages/admin/reports/gps_report.jsp
+pages/admin/reports/gps_route_report.jsp
+pages/admin/reports/gps_wifi_report.jsp
+pages/admin/reports/hour_count_report.jsp
+pages/admin/reports/hour_meter_exception_report.jsp
+5. Produce reading evidence for every file FIRST, then review against all applicable checklist sections.
+6. Write output to: C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass1/P40.md
+Report only - do NOT fix anything.

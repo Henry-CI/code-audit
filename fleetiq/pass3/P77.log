@@ -1,0 +1,21 @@
+Documentation audit complete! I've analyzed all 10 JSP report files and created a comprehensive audit report at:
+
+**C:/Projects/cig-audit/repos/fleetiq/audit/2026-03-01-01/pass3/P77.md**
+
+## Key Findings Summary
+
+**20 documentation gaps identified across 10 JSP files:**
+
+- **4 HIGH severity**: Security-sensitive unlock tracking reports lacking documentation (print_unit_unlock.jsp, print_unit_unlock_impact.jsp, print_unit_unlock_question.jsp)
+- **11 MEDIUM severity**: Missing file-level documentation and undocumented business logic
+- **5 LOW severity**: Undocumented helper logic and default values
+
+**Critical issues:**
+1. All 10 files lack file-level documentation explaining purpose, parameters, and dependencies
+2. Security-sensitive unlock reports don't document lockout types, master codes, or access control requirements
+3. Hardcoded magic numbers (lockout type codes 251, 252, 253, 234, 254) and access levels (1-5) lack documentation
+4. Complex site-specific processing (AU/MLA vs others) undocumented
+5. JavaScript functions in print_util_wow.jsp lack JSDoc comments
+6. HTML syntax error on line 224 of print_unit_unlock_impact.jsp
+
+The report includes detailed reading evidence for each file, specific findings with recommended fixes, and a comprehensive summary of all documentation gaps.
